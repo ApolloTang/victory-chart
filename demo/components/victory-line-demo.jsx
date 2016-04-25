@@ -6,52 +6,52 @@ import LineSegment from "../../src/components/victory-line/line-segment";
 import Point from "../../src/components/victory-scatter/point";
 import {VictoryLabel} from "victory-core";
 
-class PointedLine extends React.Component {
-  static propTypes = {
-    ...LineSegment.propTypes,
-    index: React.PropTypes.number
-  };
-
-  renderLine(props) {
-    return <LineSegment {...props} />;
-  }
-
-  renderPoints(props) {
-    const {index, data, scale} = props;
-    return (data.map(
-      (datum, pointIndex) => {
-        const {x, y} = datum;
-
-        const position = {
-          x: scale.x.call(null, x),
-          y: scale.y.call(null, y)
-        };
-
-        return (
-          <Point
-            symbol="circle"
-            size={2}
-            key={`line-${index}-point-${pointIndex}`}
-            index={parseFloat(`${index}.${pointIndex}`)}
-            datum={datum}
-            position={position}
-          />
-        );
-      })
-    );
-  }
-
-  render() {
-    const {index} = this.props;
-
-    return (
-      <g key={`line-point-group-${index}`}>
-        {this.renderLine(this.props)}
-        {this.renderPoints(this.props)}
-      </g>
-    );
-  }
-}
+// class PointedLine extends React.Component {
+//   static propTypes = {
+//     ...LineSegment.propTypes,
+//     index: React.PropTypes.number
+//   };
+//
+//   renderLine(props) {
+//     return <LineSegment {...props} />;
+//   }
+//
+//   renderPoints(props) {
+//     const {index, data, scale} = props;
+//     return (data.map(
+//       (datum, pointIndex) => {
+//         const {x, y} = datum;
+//
+//         const position = {
+//           x: scale.x.call(null, x),
+//           y: scale.y.call(null, y)
+//         };
+//
+//         return (
+//           <Point
+//             symbol="circle"
+//             size={2}
+//             key={`line-${index}-point-${pointIndex}`}
+//             index={parseFloat(`${index}.${pointIndex}`)}
+//             datum={datum}
+//             position={position}
+//           />
+//         );
+//       })
+//     );
+//   }
+//
+//   render() {
+//     const {index} = this.props;
+//
+//     return (
+//       <g key={`line-point-group-${index}`}>
+//         {this.renderLine(this.props)}
+//         {this.renderPoints(this.props)}
+//       </g>
+//     );
+//   }
+// }
 
 export default class App extends React.Component {
   constructor() {
@@ -149,14 +149,6 @@ export default class App extends React.Component {
           data={_.range(0, 100)}
           x={null}
           y={(d) => d * d}
-        />
-
-        <VictoryLine
-          style={{parent: parentStyle}}
-          data={this.state.arrayData}
-          x={0}
-          y={1}
-          dataComponent={<PointedLine />}
         />
 
         <VictoryLine

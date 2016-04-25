@@ -49,8 +49,10 @@ export default class BarLabel extends React.Component {
     const events = Helpers.getPartialEvents(baseEvents, index, props);
     const newProps = {
       index: props.index,
-      x: component.props.x || position.x + padding.x,
-      y: component.props.y || position.y - padding.y,
+      x: component.props.x || position.x,
+      y: component.props.y || position.y,
+      dy: padding.y,
+      dx: padding.x,
       datum: props.datum, // Pass datum for custom label component to access
       text: labelText,
       textAnchor: component.props.textAnchor || anchors.text,

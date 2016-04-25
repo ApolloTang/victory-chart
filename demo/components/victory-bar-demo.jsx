@@ -136,7 +136,7 @@ export default class App extends React.Component {
           })}
         </VictoryGroup>
 
-        <VictoryGroup horizontal style={{parent: parentStyle}} offset={8}
+        <VictoryGroup domain={{y: [15, 0]}} horizontal style={{parent: parentStyle}} offset={8}
           colorScale={"cool"} animate={{duration: 2000}}
         >
           {this.getBarData().map((data, index) => {

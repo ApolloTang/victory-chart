@@ -3,7 +3,7 @@ import pick from "lodash/pick";
 import omit from "lodash/omit";
 import defaults from "lodash/defaults";
 import assign from "lodash/assign";
-import Point from "./point";
+import Point from "../shared/point";
 import PointLabel from "./point-label";
 import Scale from "../../helpers/scale";
 import Domain from "../../helpers/domain";
@@ -85,7 +85,7 @@ export default class VictoryScatter extends React.Component {
      * The dataComponent prop takes an entire, HTML-complete data component which will be used to
      * create points for each datum in the scatter plot. The new element created from the passed
      * dataComponent will have the property datum set by the scatter for the point it renders;
-     * properties position (x, y), size and symbol are calculated by the scatter for the datum;
+     * properties x, y, size and symbol are calculated by the scatter for the datum;
      * a key and index property set corresponding to the location of the datum in the data
      * provided to the scatter; style calculated by the scatter based on the scatter's
      * styles and the datum; and all the remaining properties from the scatter's data
@@ -137,7 +137,7 @@ export default class VictoryScatter extends React.Component {
      * The labelComponent prop takes in an entire, HTML-complete label component which will be used
      * to create labels for each point in the scatter plot. The new element created from the passed
      * labelComponent will have property data provided by the point's datum; properties
-     * position (x, y), dy, textAnchor, and verticalAnchor preserved or default values
+     * x, y, dx, dy, textAnchor, and verticalAnchor preserved or default values
      * provided by the point; and styles filled out with defaults from the scatter,
      * and overrides from the datum. If labelComponent is omitted, a new VictoryLabel
      * will be created with props and styles from the point.
@@ -288,16 +288,15 @@ export default class VictoryScatter extends React.Component {
 
   getSharedProps(datum, index, calculatedProps) {
     const { style } = calculatedProps;
-    const position = {
-      x: calculatedProps.scale.x.call(null, datum.x),
-      y: calculatedProps.scale.y.call(null, datum.y)
-    };
+
+    const x = calculatedProps.scale.x.call(null, datum.x);
+    const y = calculatedProps.scale.y.call(null, datum.y);
 
     const baseSize = ScatterHelpers.getSize(datum, this.props, calculatedProps);
 
     const symbol = ScatterHelpers.getSymbol(datum, this.props);
 
-    return {index, datum, baseSize, symbol, style, position};
+    return {index, datum, baseSize, symbol, style, x, y};
   }
 
   addDataProps(sharedProps, getBoundEvents) {
