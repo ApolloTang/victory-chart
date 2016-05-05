@@ -4,8 +4,8 @@ import assign from "lodash/assign";
 import React, { PropTypes } from "react";
 import { PropTypes as CustomPropTypes, Helpers, VictoryTransition } from "victory-core";
 
-import Bar from "./bar";
-import BarLabel from "./bar-label";
+import Bar from "./bar.jsx";
+import BarLabel from "./bar-label.jsx";
 import Data from "../../helpers/data";
 import Domain from "../../helpers/domain";
 import Scale from "../../helpers/scale";

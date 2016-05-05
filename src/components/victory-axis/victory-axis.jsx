@@ -1,11 +1,11 @@
 import defaults from "lodash/defaults";
 import React, { PropTypes } from "react";
 import { PropTypes as CustomPropTypes, VictoryTransition, Helpers } from "victory-core";
-import AxisLine from "./axis-line";
-import AxisLabel from "./axis-label";
-import GridLine from "./grid";
-import Tick from "./tick";
-import TickLabel from "./tick-label";
+import AxisLine from "./axis-line.jsx";
+import AxisLabel from "./axis-label.jsx";
+import GridLine from "./grid.jsx";
+import Tick from "./tick.jsx";
+import TickLabel from "./tick-label.jsx";
 import AxisHelpers from "./helper-methods";
 import Axis from "../../helpers/axis";
 
