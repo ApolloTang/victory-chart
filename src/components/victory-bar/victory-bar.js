@@ -2,9 +2,12 @@ import omit from "lodash/omit";
 import defaults from "lodash/defaults";
 import assign from "lodash/assign";
 import React, { PropTypes } from "react";
+// import {
+//   PropTypes as CustomPropTypes, Helpers, VictoryTransition, VictoryLabel
+// } from "victory-core";
 import {
   PropTypes as CustomPropTypes, Helpers, VictoryTransition, VictoryLabel
-} from "victory-core";
+} from "vendor/victory-core";
 import Bar from "./bar";
 import Data from "../../helpers/data";
 import Domain from "../../helpers/domain";
