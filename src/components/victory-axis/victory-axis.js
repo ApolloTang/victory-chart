@@ -1,9 +1,12 @@
 import defaults from "lodash/defaults";
 import assign from "lodash/assign";
 import React, { PropTypes } from "react";
+// import {
+//   PropTypes as CustomPropTypes, Helpers, VictoryTransition, VictoryLabel
+// } from "victory-core";
 import {
   PropTypes as CustomPropTypes, Helpers, VictoryTransition, VictoryLabel
-} from "victory-core";
+} from "vendor/victory-core";
 import AxisLine from "./axis-line";
 import GridLine from "./grid";
 import Tick from "./tick";
