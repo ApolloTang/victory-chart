@@ -7,7 +7,7 @@ import React, { PropTypes } from "react";
 // } from "victory-core";
 import {
   PropTypes as CustomPropTypes, Helpers, VictoryTransition, VictoryLabel
-} from "vendor/victory-core";
+} from "vendor/victory-core/src/";
 import Bar from "./bar";
 import Data from "../../helpers/data";
 import Domain from "../../helpers/domain";
